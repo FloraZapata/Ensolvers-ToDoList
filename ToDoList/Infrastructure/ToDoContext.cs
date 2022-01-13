@@ -5,6 +5,10 @@ namespace ToDoList.Infrastructure
 {
     public class ToDoContext : DbContext
     {
+        public ToDoContext()
+        {
+        }
+
         public ToDoContext(DbContextOptions<ToDoContext> options)
             :base(options)
         {
@@ -12,5 +16,7 @@ namespace ToDoList.Infrastructure
         }
 
         public DbSet<TodoList> ToDoList  { get; set; }
+
+        
     }
 }

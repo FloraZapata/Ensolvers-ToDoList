@@ -12,6 +12,8 @@ namespace ToDoList.Controllers
     public class ToDoController : Controller
     {
         private readonly ToDoContext context;
+        readonly ToDoList.Services.ToDoService service = new Services.ToDoService();
+        
 
         public ToDoController(ToDoContext context)
         {
@@ -19,11 +21,12 @@ namespace ToDoList.Controllers
         }
 
         // GET /
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            IQueryable<TodoList> items = from i in context.ToDoList orderby i.Id select i;
 
-            List<TodoList> todoList = await items.ToListAsync();
+            List<TodoList> todoList = new List<TodoList>();
+                
+            todoList=service.getTasks(context);
 
             return View(todoList);
 
@@ -35,19 +38,14 @@ namespace ToDoList.Controllers
         // POST /todo/create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(TodoList item)
+        public ActionResult Create(TodoList item)
         {
-            if (ModelState.IsValid)
-            {
-                context.Add(item);
-                await context.SaveChangesAsync();
+            
+            service.addTask(item, context);
+            TempData["Success"] = "The item has been added!";
 
-                TempData["Success"] = "The item has been added!";
 
-                return RedirectToAction("Index");
-            }
-
-            return View(item);
+            return RedirectToAction("Index");
 
         }
 
