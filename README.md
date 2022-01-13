@@ -14,13 +14,3 @@ Microsoft .NET Core 3.1.0
 Microsoft Entity Framework Core SQLserver 3.1.6
 Microsoft Entity Framework Core Tools 3.1.6
 
-Exe Files
-Windows:
-https://drive.google.com/drive/folders/1Qs5cswpzUr7QQEvywhnLnGP8aUG7OUEC?usp=sharing
-
-Linux:
-https://drive.google.com/drive/folders/1HK-iVAyyaXFWDq2kMThPf4T-ci_TbToG?usp=sharing
-
-MacOS:
-https://drive.google.com/drive/folders/1vJGie2rMWJ7_YR8CFzHc3OQmUViGPxNy?usp=sharing
-
